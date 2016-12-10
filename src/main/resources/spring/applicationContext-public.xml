@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd"
+	default-lazy-init="false">
+
+	<description>Spring公共配置</description>
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	<!--配置properties文件 -->
+	<context:property-placeholder location="classpath:properties/*.properties" />
+
+	<!-- 自动扫描服务 -->
+	<context:component-scan base-package="com.springmvc" />
+
+	<!-- 配置事务 -->
+	<!-- <bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="new*" propagation="REQUIRED" read-only="false"	rollback-for="Exception" />
+			<tx:method name="add*" propagation="REQUIRED" read-only="false"	rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="Exception" />
+			<tx:method name="del*" propagation="REQUIRED" read-only="false"	rollback-for="Exception" />
+			<tx:method name="remove*" propagation="REQUIRED" read-only="false" rollback-for="Exception" />
+			<tx:method name="*" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="interceptorPointCuts"
+			expression="execution(* com.springdemo.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
+	</aop:config> -->
+
+	<!-- <bean class="com.cdfg.common.spring.SpringContextUtil" /> -->
+
+	<!-- 上传文件拦截，设置最大上传文件大小 10M=10*1024*1024(B)=10485760 bytes -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760" />
+		<property name="maxInMemorySize" value="10485760" />
+	</bean>
+	
+	<!-- <beans profile="develop">
+		<bean class="com.cdfg.operationlog.OperationLogTimerStart"
+			init-method="init">
+			<property name="period" value="30" />
+		</bean>
+		<bean class="com.cdfg.cms.constants.Constants">
+			<property name="imageUploadUrl" value="${develop.image.upload.url}" />
+			<property name="imageDomainUrl" value="${develop.image.domain.url}" />
+			<property name="orderValidPeriod" value="${develop.order.valid.period}" />
+			<property name="openGrabUrl" value="${develop.temai.opengrab.url}" />
+			<property name="androidDownloadUrl" value="${develop.android.download.url}" />
+			<property name="iosDownloadUrl" value="${develop.ios.download.url}" />
+
+			<property name="appStorePreviewUrl" value="${develop.app.store.preview.url}" />
+			<property name="appPreviewUrl" value="${develop.app.preview.url}" />
+			<property name="topicPreviewUrl" value="${develop.topic.preview.url}" />
+		</bean>
+
+		<bean class="com.cdfg.statistic.constants.Constants">
+			<property name="periodHour" value="${develop.periodHour}" />
+			<property name="periodDay" value="${develop.periodDay}" />
+		</bean>
+	</beans>
+
+	<beans profile="test">
+		<bean class="com.cdfg.operationlog.OperationLogTimerStart"
+			init-method="init">
+			<property name="period" value="30" />
+		</bean>
+		<bean class="com.cdfg.cms.constants.Constants">
+			<property name="imageUploadUrl" value="${test.image.upload.url}" />
+			<property name="imageDomainUrl" value="${test.image.domain.url}" />
+			<property name="orderValidPeriod" value="${test.order.valid.period}" />
+			<property name="openGrabUrl" value="${test.temai.opengrab.url}" />
+			<property name="androidDownloadUrl" value="${test.android.download.url}" />
+			<property name="iosDownloadUrl" value="${test.ios.download.url}" />
+			<property name="appStorePreviewUrl" value="${test.app.store.preview.url}" />
+			<property name="appPreviewUrl" value="${test.app.preview.url}" />
+			<property name="topicPreviewUrl" value="${test.topic.preview.url}" />
+		</bean>
+
+		<bean class="com.cdfg.statistic.constants.Constants">
+			<property name="periodHour" value="${test.periodHour}" />
+			<property name="periodDay" value="${test.periodDay}" />
+		</bean>
+	</beans>
+
+	<beans profile="preproduct">
+		<bean class="com.cdfg.operationlog.OperationLogTimerStart"
+			init-method="init">
+			<property name="period" value="60" />
+		</bean>
+		<bean class="com.cdfg.cms.constants.Constants">
+			<property name="imageUploadUrl" value="${preproduct.image.upload.url}" />
+			<property name="imageDomainUrl" value="${preproduct.image.domain.url}" />
+			<property name="orderValidPeriod" value="${preproduct.order.valid.period}" />
+			<property name="openGrabUrl" value="${preproduct.temai.opengrab.url}" />
+			<property name="androidDownloadUrl" value="${preproduct.android.download.url}" />
+			<property name="iosDownloadUrl" value="${preproduct.ios.download.url}" />
+			<property name="appStorePreviewUrl" value="${preproduct.app.store.preview.url}" />
+			<property name="appPreviewUrl" value="${preproduct.app.preview.url}" />
+			<property name="topicPreviewUrl" value="${preproduct.topic.preview.url}" />
+		</bean>
+
+		<bean class="com.cdfg.statistic.constants.Constants">
+			<property name="periodHour" value="${preproduct.periodHour}" />
+			<property name="periodDay" value="${preproduct.periodDay}" />
+		</bean>
+	</beans>
+
+	<beans profile="product">
+		<bean class="com.cdfg.operationlog.OperationLogTimerStart"
+			init-method="init">
+			<property name="period" value="60" />
+		</bean>
+		<bean class="com.cdfg.cms.constants.Constants">
+			<property name="imageUploadUrl" value="${product.image.upload.url}" />
+			<property name="imageDomainUrl" value="${product.image.domain.url}" />
+			<property name="orderValidPeriod" value="${product.order.valid.period}" />
+			<property name="openGrabUrl" value="${product.temai.opengrab.url}" />
+			<property name="androidDownloadUrl" value="${product.android.download.url}" />
+			<property name="iosDownloadUrl" value="${product.ios.download.url}" />
+			<property name="appStorePreviewUrl" value="${product.app.store.preview.url}" />
+			<property name="appPreviewUrl" value="${product.app.preview.url}" />
+			<property name="topicPreviewUrl" value="${product.topic.preview.url}" />
+		</bean>
+
+		<bean class="com.cdfg.statistic.constants.Constants">
+			<property name="periodHour" value="${product.periodHour}" />
+			<property name="periodDay" value="${product.periodDay}" />
+		</bean>
+	</beans> -->
+</beans>
