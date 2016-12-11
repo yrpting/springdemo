@@ -44,6 +44,19 @@ public class TestClass extends BaseTest {
 	}
 
 	public static void main(String[] args) {
+	     String s1 = "Programming";
+        String s2 = new String("Programming");
+        String s3 = "Program" + "ming";
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
+        System.out.println(s1 == s1.intern());
+        /*short s =1;
+        s +=1;
+        System.out.println(s);
+	    Integer a=new Integer(127);
+	    Integer b=new Integer(127);
+	    System.out.println(a==b);
+	    
 		Node first = new Node(100);
 		Node tmp = first;
 
@@ -59,6 +72,7 @@ public class TestClass extends BaseTest {
 		}
 		System.out.println();
 		reverse(first);
+		*/
 	}
 
 	public static void reverse(Node first) {
