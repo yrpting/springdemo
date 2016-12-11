@@ -44,13 +44,18 @@ public class TestClass extends BaseTest {
 	}
 
 	public static void main(String[] args) {
-	     String s1 = "Programming";
+	    Byte a =  127 ;
+	    Byte b= 127 ;
+	    //int a =1281;
+	    //int b =1281;
+	    System.out.println(a==b);
+	    /* String s1 = "Programming";
         String s2 = new String("Programming");
         String s3 = "Program" + "ming";
         System.out.println(s1 == s2);
         System.out.println(s1 == s3);
         System.out.println(s1 == s1.intern());
-        /*short s =1;
+        short s =1;
         s +=1;
         System.out.println(s);
 	    Integer a=new Integer(127);
