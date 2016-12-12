@@ -44,12 +44,19 @@ public class TestClass extends BaseTest {
 	}
 
 	public static void main(String[] args) {
+	    SyncTest s = new SyncTest();
+	    Thread t1= new Thread(s);
+	    Thread t2= new Thread(s);
+	    t1.start();
+	    t2.start();
+	    /*NodeChild c = new NodeChild();
+	    System.out.println(c);
 	    Byte a =  127 ;
 	    Byte b= 127 ;
 	    //int a =1281;
 	    //int b =1281;
 	    System.out.println(a==b);
-	    /* String s1 = "Programming";
+	     String s1 = "Programming";
         String s2 = new String("Programming");
         String s3 = "Program" + "ming";
         System.out.println(s1 == s2);
@@ -101,11 +108,26 @@ public class TestClass extends BaseTest {
 		}
 	}
 }
-
+class NodeChild extends Node{
+    //@Override
+   // public static void testStatic(){
+   //     System.out.println("Node testStatic executing");
+   // }
+    @Override
+    public boolean hasNext() {
+		return true;
+	}
+}
 class Node {
 	private int id;
 	private Node next;
-
+    public static void testStatic(){
+        System.out.println("Node testStatic executing");
+    }
+    private void testPrivate(){
+        System.out.println("Node testPrivate executing");
+    }
+    public Node(){}
 	public Node(int id) {
 		this.id = id;
 	}
@@ -124,4 +146,19 @@ class Node {
 	public boolean hasNext() {
 		return this.next != null;
 	}
+}
+class SyncTest implements Runnable {
+    private int a = 10;
+    @Override
+    public void run(){
+        try{
+            while(a>0){
+                a--;
+                System.out.println(Thread.currentThread().getName()+":"+a);
+                Thread.sleep(1000);
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }
