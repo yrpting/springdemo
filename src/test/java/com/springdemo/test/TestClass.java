@@ -153,9 +153,9 @@ class SyncTest implements Runnable {
     public void run(){
         try{
             while(a>0){
+				Thread.sleep(1);
                 a--;
                 System.out.println(Thread.currentThread().getName()+":"+a);
-                Thread.sleep(1000);
             }
         }catch(Exception e){
             System.out.println(e);
