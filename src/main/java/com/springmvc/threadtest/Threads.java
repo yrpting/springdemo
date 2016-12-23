@@ -23,8 +23,8 @@ public class Threads {
 		Object a = 2, b = 1;
 		DeadLockA da = new DeadLockA(a, b);
 		DeadLockB db = new DeadLockB(a, b);
-		new Thread(da).start();
-		new Thread(db).start();
+		new Thread(da, "deada").start();
+		new Thread(db, "deadb").start();
 		//		logger.info("main thread {} begin", Thread.currentThread().getName());
 		//		ExecutorService executor = Executors.newCachedThreadPool();
 		//		Future<String> future = executor.submit(new Task());
