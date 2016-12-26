@@ -15,15 +15,15 @@ package com.springmvc.threadtest;
 public class ProducerConsumer {
 	public static void main(String[] args) {
 		Resource resource = new Resource();
-		new Thread(new Producer(resource)).start();
-		new Thread(new Consumer(resource)).start();
+		new Thread(new Producer1(resource)).start();
+		new Thread(new Consumer1(resource)).start();
 	}
 }
 
-class Producer implements Runnable {
+class Producer1 implements Runnable {
 	private Resource resource;
 
-	public Producer(Resource resource) {
+	public Producer1(Resource resource) {
 		this.resource = resource;
 	}
 
@@ -65,10 +65,10 @@ class Producer implements Runnable {
 	}
 }
 
-class Consumer implements Runnable {
+class Consumer1 implements Runnable {
 	private Resource resource;
 
-	public Consumer(Resource resource) {
+	public Consumer1(Resource resource) {
 		this.resource = resource;
 	}
 
