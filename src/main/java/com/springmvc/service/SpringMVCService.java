@@ -13,5 +13,5 @@ package com.springmvc.service;
  *	功能		:	<br>
  */
 public interface SpringMVCService {
-	public String getSomething();
+	public String getSomething(String str);
 }

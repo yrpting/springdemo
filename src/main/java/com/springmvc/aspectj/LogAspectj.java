@@ -49,7 +49,8 @@ public class LogAspectj {
 		logger.info("around before");
 		Object o = null;
 		try {
-			o = joinPoint.proceed();
+			logger.info("args:{}", joinPoint.getArgs());
+			o = joinPoint.proceed(joinPoint.getArgs());
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

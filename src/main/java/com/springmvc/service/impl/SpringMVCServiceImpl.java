@@ -24,8 +24,9 @@ public class SpringMVCServiceImpl implements SpringMVCService {
 	/* (non-Javadoc)
 	 * @see com.springmvc.service.SpringMVCService#getSomething()
 	 */
-	public String getSomething() {
+	public String getSomething(String str) {
 		// TODO Auto-generated method stub
+		logger.info("getSomething():{}", str);
 		testAspectJ();
 		return "give you something";
 	}

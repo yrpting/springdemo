@@ -43,7 +43,7 @@ public class SpringMVCController {
 	@RequestMapping(value = "post")
 	public String toPost(String str) {
 		logger.info(str);
-		springMVCService.getSomething();
+		springMVCService.getSomething(str);
 		return "post";
 	}
 
@@ -59,7 +59,7 @@ public class SpringMVCController {
 		//		}
 		//response.setHeader("Cache-Control", "max-age=0");
 		logger.info("/first execute");
-		springMVCService.getSomething();
+		springMVCService.getSomething(aid);
 		return "first";
 	}
 
