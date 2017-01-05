@@ -6,7 +6,6 @@
  */
 package com.springdemo.test;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -59,16 +58,24 @@ public class TestClass extends BaseTest {
 	}
 
 	public static void main(String[] args) {
-		Double d1 = new Double("2d");
-		Double d2 = new Double("2.00d");
-		System.out.println(d1.equals(d2));
-		System.out.println(d1.compareTo(d2));
-
-		BigDecimal bd1 = new BigDecimal("2.0");
-		BigDecimal bd2 = new BigDecimal("2.00");
-		System.out.println(bd1.equals(bd2));
-		System.out.println(bd1.compareTo(bd2));
-		//		BigDecimal bd1 =new BigDecimal("2.0");
+		Thread t = new Mythread() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see com.springdemo.test.Mythread#run()
+			 */
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				System.out.println("main");
+			}
+		};
+		t.start();
+		/*
+		 * Double d1 = new Double("2d"); Double d2 = new Double("2.00d"); System.out.println(d1.equals(d2)); System.out.println(d1.compareTo(d2));
+		 * 
+		 * BigDecimal bd1 = new BigDecimal("2.0"); BigDecimal bd2 = new BigDecimal("2.00"); System.out.println(bd1.equals(bd2)); System.out.println(bd1.compareTo(bd2));
+		 *///		BigDecimal bd1 =new BigDecimal("2.0");
 		//		BigDecimal bd2 = new BigDecimal("2.00");
 		//		HashSet<BigDecimal> set1 = new HashSet<>();
 		//		set1.add(bd1);
@@ -203,3 +210,16 @@ class SyncTest implements Runnable {
 		}
 	}
 }
+
+class Mythread extends Thread {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Thread#run()
+	 */
+	@Override
+	public void run() {
+		System.out.println("mythread run");
+	}
+}
+
