@@ -57,20 +57,66 @@ public class TestClass extends BaseTest {
 		System.out.println(Arrays.toString(bytes));
 	}
 
-	public static void main(String[] args) {
-		Thread t = new Mythread() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see com.springdemo.test.Mythread#run()
-			 */
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				System.out.println("main");
-			}
-		};
-		t.start();
+	public static void main(String[] args) throws InterruptedException {
+		Child c = new Child();
+		Base b = (Base) c;
+		b.AA();
+		new Base().AA();
+		//		List<String> l = new ArrayList<>();
+		//		Map<String, String> m = new ConcurrentHashMap<>();
+		//		int a = 1;
+		//		l.parallelStream().filter(str -> {
+		//			if (str != null) {
+		//				return true;
+		//			}
+		//			m.put("d", "s");
+		//			return false;
+		//		}).collect(Collectors.toList());
+		//		
+		//		Node n = new Node();
+		//		Thread t = new Thread() {
+		//			/*
+		//			 * (non-Javadoc)
+		//			 * 
+		//			 * @see com.springdemo.test.Mythread#run()
+		//			 */
+		//			@Override
+		//			public void run() {
+		//				// TODO Auto-generated method stub
+		//				System.out.println("main");
+		//				Node n1 = n.getNext();
+		//				synchronized (n) {
+		//					if (n1 == null) {
+		//						try {
+		//							n.wait();
+		//						} catch (InterruptedException e) {
+		//							// TODO Auto-generated catch block
+		//							e.printStackTrace();
+		//						}
+		//					}
+		//				}
+		//				n1 = n.getNext();
+		//				System.out.println(n1);
+		//			}
+		//		};
+		//		t.start();
+		//		new Thread() {
+		//			/*
+		//			 * (non-Javadoc)
+		//			 * 
+		//			 * @see com.springdemo.test.Mythread#run()
+		//			 */
+		//			@Override
+		//			public void run() {
+		//				// TODO Auto-generated method stub
+		//				System.out.println("main");
+		//				synchronized (n) {
+		//					n.setNext(new Node());
+		//					n.notifyAll();
+		//				}
+		//			}
+		//		}.start();
+		//Thread.sleep(100);
 		/*
 		 * Double d1 = new Double("2d"); Double d2 = new Double("2.00d"); System.out.println(d1.equals(d2)); System.out.println(d1.compareTo(d2));
 		 * 
@@ -223,3 +269,38 @@ class Mythread extends Thread {
 	}
 }
 
+class Base {
+	{
+		System.out.println("base 代码块b");
+	}
+	static {
+		System.out.println("base 静态代码块");
+	}
+	{
+		System.out.println("base 代码块a");
+	}
+	public Base() {
+		System.out.println("base");
+	}
+
+	void AA() {
+		System.out.println("base AA");
+	}
+}
+
+class Child extends Base {
+	static {
+		System.out.println("child 静态代码块");
+	}
+	{
+		System.out.println("child 代码块");
+	}
+
+	public Child() {
+		System.out.println("child");
+	}
+
+	void AA() {
+		System.out.println("child AA");
+	}
+}
