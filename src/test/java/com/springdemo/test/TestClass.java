@@ -62,6 +62,7 @@ public class TestClass extends BaseTest {
 		Base b = (Base) c;
 		b.AA();
 		new Base().AA();
+		String aa;
 		//		List<String> l = new ArrayList<>();
 		//		Map<String, String> m = new ConcurrentHashMap<>();
 		//		int a = 1;
