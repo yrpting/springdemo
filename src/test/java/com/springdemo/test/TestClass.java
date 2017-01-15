@@ -58,11 +58,11 @@ public class TestClass extends BaseTest {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		Child c = new Child();
-		Base b = (Base) c;
-		b.AA();
-		new Base().AA();
-		String aa;
+		Child c = new Child("哈哈");
+//		Base b = (Base) c;
+//		b.AA();
+//		new Base().AA();
+//		String aa;
 		//		List<String> l = new ArrayList<>();
 		//		Map<String, String> m = new ConcurrentHashMap<>();
 		//		int a = 1;
@@ -283,7 +283,9 @@ class Base {
 	public Base() {
 		System.out.println("base");
 	}
-
+public Base(String str){
+    System.out.println("base 有参");
+}
 	void AA() {
 		System.out.println("base AA");
 	}
@@ -300,7 +302,9 @@ class Child extends Base {
 	public Child() {
 		System.out.println("child");
 	}
-
+public Child(String str){
+    System.out.println("child 有参构造");
+}
 	void AA() {
 		System.out.println("child AA");
 	}
