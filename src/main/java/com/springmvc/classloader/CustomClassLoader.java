@@ -11,14 +11,14 @@ import java.net.URL;
 
 public class CustomClassLoader extends ClassLoader {
     public static void main(String[] args) {
-        String clsName = "com.springmvc.threadtest.Threads";
+        String clsName = "jav.lan.String";
         //CustomClassLoader ccl = new CustomClassLoader("http://localhost:8080");
         CustomClassLoader ccl = new CustomClassLoader("E:/software/apache-tomcat-8.0.26/webapps/ROOT");
         try {
             Class<?> cls = ccl.loadClass(clsName);
-                        for (Method m : cls.getMethods()) {
-                            System.out.println(m.getName());
-                        }
+//                        for (Method m : cls.getMethods()) {
+//                            System.out.println(m.getName());
+//                        }
             System.out.println(cls.getClassLoader());
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block

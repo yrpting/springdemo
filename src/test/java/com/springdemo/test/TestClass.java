@@ -56,9 +56,33 @@ public class TestClass extends BaseTest {
 		System.out.println(Double.NaN);
 		System.out.println(Arrays.toString(bytes));
 	}
-
+static void add(Byte a){
+    a=a++;
+}
 	public static void main(String[] args) throws InterruptedException {
-		Child c = new Child("哈哈");
+	    Byte a = 127;
+	    Byte b = 127;
+	    add(++a);
+	    System.out.println(a);
+	    add(b);
+	    System.out.println(b);
+	    int i = 4;
+	    System.out.println(Integer.toBinaryString(i));
+		System.out.println(Integer.toBinaryString(-i));
+		System.out.println(Integer.toBinaryString(-i>>2));
+		System.out.println(-i>>2);
+		System.out.println(-i>>>2);
+		System.out.println(Integer.toBinaryString(-i>>>2));
+	    LRUCache<String, String> lru = new LRUCache<>(5);
+		lru.put("aaa", null);
+		lru.put("ddd", null);
+		lru.put("ccc", null);
+		lru.put("bbb", null);
+		lru.get("aaa");
+		lru.put("eee", null);
+		lru.put("fff", null);
+		//System.out.println(lru);
+	    //Child c = new Child("哈哈");
 //		Base b = (Base) c;
 //		b.AA();
 //		new Base().AA();

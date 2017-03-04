@@ -41,6 +41,10 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	    <!-- 用户在线数和登录数统计 -->  
+    <listener>  
+     <listener-class>com.springmvc.listener.CountLineListener</listener-class>   
+    </listener>
 	<servlet>
 		<servlet-name>springServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

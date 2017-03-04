@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
  *	项目		:	springdemo<br>
  *	功能		:	<br>
  */
-@Target(ElementType.FIELD)
+@Target({ElementType.FIELD,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnnotation {
 	public int id() default 0;
