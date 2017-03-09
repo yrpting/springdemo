@@ -1,4 +1,4 @@
-package com.springdemo.test;
+package com.springdemo.test.algorithm;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

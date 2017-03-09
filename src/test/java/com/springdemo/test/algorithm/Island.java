@@ -1,4 +1,4 @@
-package com.springdemo.test;
+package com.springdemo.test.algorithm;
 
 class A {
     int i;

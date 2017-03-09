@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import com.springdemo.test.algorithm.LRUCache;
 import com.springmvc.invocationhandler.MyInvocationHandler;
 import com.springmvc.service.UserService;
 import com.springmvc.service.impl.UserServiceImpl;

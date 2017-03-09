@@ -1,4 +1,4 @@
-package com.springdemo.test;
+package com.springdemo.test.algorithm;
 
 /**
  * 将26个字母按顺时针方向将数组填充
