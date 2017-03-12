@@ -6,6 +6,10 @@
  */
 package com.springmvc.service;
 
+import java.util.List;
+
+import com.springmvc.model.User;
+
 /**
  *	日期		:	2016年11月25日<br>
  *	作者		:	rupeng.yan<br>
@@ -14,4 +18,5 @@ package com.springmvc.service;
  */
 public interface SpringMVCService {
 	public String getSomething(String str);
+	public List<User> listUsers();
 }

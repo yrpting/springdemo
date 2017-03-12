@@ -6,10 +6,15 @@
  */
 package com.springmvc.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springmvc.dao.UserMapper;
+import com.springmvc.model.User;
 import com.springmvc.service.SpringMVCService;
 
 /**
@@ -21,11 +26,13 @@ import com.springmvc.service.SpringMVCService;
 @Service
 public class SpringMVCServiceImpl implements SpringMVCService {
 	private Logger logger = LoggerFactory.getLogger(SpringMVCServiceImpl.class);
+	
+	@Autowired
+	private UserMapper userMapper;
 	/* (non-Javadoc)
 	 * @see com.springmvc.service.SpringMVCService#getSomething()
 	 */
 	public String getSomething(String str) {
-		// TODO Auto-generated method stub
 		logger.info("getSomething():{}", str);
 		testAspectJ();
 		return "give you something";
@@ -34,5 +41,10 @@ public class SpringMVCServiceImpl implements SpringMVCService {
 	private void testAspectJ() {
 		logger.info("testAspectJ");
 	}
+
+    @Override
+    public List<User> listUsers() {
+        return userMapper.listUsers();
+    }
 
 }

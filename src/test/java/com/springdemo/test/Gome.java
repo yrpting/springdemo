@@ -9,10 +9,24 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 
 public class Gome {
+    private static int func(){
+        int i,j,k=0;
+        for(i=0,j=-1;j==0;i++,j++){
+            k++;
+        }
+        return k;
+    }
+    private static int getMost(int[][] board){
+        System.out.println(board[0].length);
+        return 0;
+    }
     public static void main(String[] args) {
-        String str1= "hello";
-        String str2 = "he"+new String("llo");
-        System.out.println(str1==str2.intern());
+        int[][] board = {{1,2,3},{4,5,6}};
+        System.out.println(getMost(board));
+        
+        //        String str1= "hello";
+        //        String str2 = "he"+new String("llo");
+        //        System.out.println(str1==str2.intern());
         //   Child1 c= new Child1("mike");
         // System.out.println( c.Child1());
         //        HashMap<String, String> h = new HashMap<>();

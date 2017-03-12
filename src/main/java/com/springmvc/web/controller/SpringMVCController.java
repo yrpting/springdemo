@@ -8,6 +8,7 @@ package com.springmvc.web.controller;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +23,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
+import com.alibaba.fastjson.JSONArray;
+import com.springmvc.model.User;
 import com.springmvc.service.impl.SpringMVCServiceImpl;
 
 /**
@@ -39,6 +43,13 @@ public class SpringMVCController {
 	private Logger logger = LoggerFactory.getLogger(SpringMVCController.class);
 	@Autowired
 	private SpringMVCServiceImpl springMVCService;
+	
+	@RequestMapping(value="listusers")
+	public String listUsers(Map<String, Object> map){
+	    List<User> list = springMVCService.listUsers();
+	    map.put("listUsers", list);
+	    return "users";
+	}
 
 	@RequestMapping(value = "post")
 	public String toPost(String str) {
@@ -91,5 +102,10 @@ public class SpringMVCController {
 		}
 
 		return "third";
+	}
+	@RequestMapping("/destroySession")
+	public String destroySession(HttpServletRequest request){
+	    request.getSession().invalidate();
+	    return null;
 	}
 }
