@@ -192,7 +192,7 @@ static void add(Byte a){
 		 * 
 		 * Node first = new Node(100); Node tmp = first;
 		 * 
-		 * for (int i = 0; i < 5; ++i) { Node b = new Node(i); tmp.setNext(b); tmp = b; } tmp = first; while (tmp != null) { System.out.print(tmp.getId() + ":"); tmp = tmp.getNext(); } System.out.println(); reverse(first);
+		 * for (int i = 0; i < 5; ++i) { Node b = new Node(i); tmp.setNext(b); tmp = b; } tmp = first; while (tmp != null) { System.out.printChain(tmp.getId() + ":"); tmp = tmp.getNext(); } System.out.println(); reverse(first);
 		 */
 	}
 

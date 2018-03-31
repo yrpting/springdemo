@@ -60,8 +60,8 @@ public class Demo {
         //		String str = new String("good");
         //		char[] ch = { 'a', 'b', 'c' };
         //		change(str, ch);
-        //		System.out.print(str + "and");
-        //		System.out.print(ch);
+        //		System.out.printChain(str + "and");
+        //		System.out.printChain(ch);
         //        InputStream is = new InputStream() {
         //            
         //            @Override

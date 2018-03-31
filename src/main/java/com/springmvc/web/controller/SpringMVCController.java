@@ -6,14 +6,8 @@
  */
 package com.springmvc.web.controller;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.springmvc.model.User;
+import com.springmvc.service.impl.SpringMVCServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +17,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
-import com.alibaba.fastjson.JSONArray;
-import com.springmvc.model.User;
-import com.springmvc.service.impl.SpringMVCServiceImpl;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 日期 : 2016年11月22日<br>
@@ -52,8 +48,10 @@ public class SpringMVCController {
 	}
 
 	@RequestMapping(value = "post")
-	public String toPost(String str) {
+	public String toPost(String str,Map<String,String> map) {
 		logger.info(str);
+		logger.info(System.getProperty(str));
+		map.put("str",String.format("%s-%s",str,System.getProperty(str)));
 		springMVCService.getSomething(str);
 		return "post";
 	}

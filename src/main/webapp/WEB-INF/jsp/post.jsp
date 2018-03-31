@@ -25,7 +25,7 @@
 		
 	</script>
 	<form action="postdemo" method="post">
-		<input name="name" type="text"> <input name="sex" type="text">
+		<input name="name" type="text"> <input name="sex" type="text" value="${str}">
 		<input type="submit" value="提交">
 		<input type="button" value="switch" onclick="change()">
 	</form>
