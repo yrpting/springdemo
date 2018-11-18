@@ -1,9 +1,6 @@
 package com.springmvc.nio;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
-
-import com.sun.jmx.snmp.tasks.ThreadService;
 
 public class NioClient {
     private static String       DEFAULT_HOST = "127.0.0.1";
