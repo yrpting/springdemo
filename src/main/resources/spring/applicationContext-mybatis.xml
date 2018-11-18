@@ -18,7 +18,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.springmvc.model" />
-		<property name="mapperLocations" value="classpath*:com/springmvc/sqlMapper/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath*:sqlMapper/*Mapper.xml" />
 		<!-- <property name="plugins">
 			<array>
 				<ref bean="pagePlugin"/>  
