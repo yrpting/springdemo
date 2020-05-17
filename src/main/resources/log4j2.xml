@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="false" debug="false">
 	<contextName>springdemo</contextName>  	
-	<property name="LOG_HOME" value="/usr/cdfg/logs/springdemo/" />  
+	<property name="LOG_HOME" value="/usr/logs/springdemo/" />
 	
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder charset="UTF-8">     
@@ -24,7 +24,7 @@
 	
 	<logger name="com.cdfg" level="DEBUG"/>
 
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILEBUG" />
 	</root>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="injectClass1" class="com.springmvc.inject.InjectClass1">
+        <property name="mymap" ref="map1"/>
+        <property name="mylist" ref="list1"/>
+    </bean>
+    <bean id="injectClass2" class="com.springmvc.inject.InjectClass2">
+        <property name="mymap" ref="map1"/>
+        <property name="mylist" ref="list1"/>
+    </bean>
+    <util:map id="map1" map-class="java.util.HashMap">
+        <entry key="1" value="a"/>
+        <entry key="2" value="b"/>
+    </util:map>
+    <util:list id="list1" list-class="java.util.ArrayList">
+        <value>12</value>
+        <value>22</value>
+    </util:list>
+</beans>

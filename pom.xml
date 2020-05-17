@@ -37,8 +37,9 @@
         <cglib.version>3.1</cglib.version>
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <slf4j.version>1.7.12</slf4j.version>
-        <log4j.version>2.7</log4j.version>
+        <log4j.version>2.13.0</log4j.version>
         <logback.version>1.1.3</logback.version>
+        <disruptor.version>3.4.2</disruptor.version>
         <log4jdbc.version>1.16</log4jdbc.version>
         <mybatis.version>3.3.0</mybatis.version>
         <mybatis-spring.version>1.2.0</mybatis-spring.version>
@@ -216,39 +217,59 @@
         <!-- general end -->
         <!-- logging begin -->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>log4j-over-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jcl-over-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jul-to-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ch.qos.logback</groupId>-->
+            <!--<artifactId>logback-classic</artifactId>-->
+            <!--<version>${logback.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-api</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
         <!--<dependency>
             <groupId>org.bgee.log4jdbc-log4j2</groupId>
             <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
             <version>${log4jdbc.version}</version>
         </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>     <!-- 桥接：告诉Slf4j使用Log4j2 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
+        </dependency>
         <!-- logging end -->
         <!-- mybatis begin -->
         <dependency>
@@ -295,5 +316,10 @@
             <version>RELEASE</version>
         </dependency>
         <!-- elasticsearch end -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
     </dependencies>
 </project>
