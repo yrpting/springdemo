@@ -23,8 +23,8 @@
         </plugins>
     </build>
     <properties>
-        <fastjson.version>1.2.25</fastjson.version>
-        <spring.version>4.1.6.RELEASE</spring.version>
+        <fastjson.version>1.2.6</fastjson.version>
+        <spring.version>5.2.6.RELEASE</spring.version>
         <javassist.version>3.12.1.GA</javassist.version>
         <janino.version>2.3.2</janino.version>
         <aspectjrt.version>1.8.5</aspectjrt.version>
