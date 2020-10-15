@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.omg.CORBA.INTERNAL;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
